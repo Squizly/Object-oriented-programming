@@ -4,7 +4,8 @@
 
 class CStrArray
 {
-	CStrArray(int length = 0);
+public:
+	CStrArray(int capacity = 0);
 	~CStrArray();
 
 

@@ -17,3 +17,26 @@ CStrArray::~CStrArray()
 {
 	delete[]m_array;
 }
+
+CStrArray* CStrArray::operator += (CStr* object)
+{
+	if (m_size < m_capacity)
+		m_array[m_size++] = object;
+
+	return this;
+}
+
+CStr& CStrArray::operator [] (const int index) const
+{
+	assert(index >= 0 && index <= m_size);
+	return *m_array[index];
+}
+
+
+std::ostream& operator << (std::ostream& stream, const CStrArray& object)
+{
+	stream << std::endl;
+	for (int i = 0; i < object.m_size; i++)
+		stream << object[i] << " ";
+	return stream;
+}

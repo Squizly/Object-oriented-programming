@@ -13,6 +13,10 @@ public:
 	CStrArray* operator += ( CStr* );
 	CStr& operator [] ( const int ) const;
 
+	void sort_by_length_string() const;
+	void sort_by_content() const;
+
+	bool check_sort_content();
 
 private:
 	CStr** m_array = nullptr;

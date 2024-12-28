@@ -32,6 +32,44 @@ CStr& CStrArray::operator [] (const int index) const
 	return *m_array[index];
 }
 
+//bubble sort
+void CStrArray::sort_by_content() const
+{
+	for (int i = 0; i < m_size - 1; i++) {
+
+		for (int j = 0; j < m_size - 1 - i; j++) {
+
+			if (m_array[j]->operator > (*m_array[j + 1]))
+				std::swap(m_array[j], m_array[j + 1]);
+
+		}
+	}
+}
+
+void CStrArray::sort_by_length_string() const
+{
+	for (int i = 0; i < m_size - 1; i++) {
+
+		for (int j = 0; j < m_size - 1 - i; j++) {
+			
+			if (m_array[j]->getLength() > m_array[j + 1]->getLength())
+				std::swap(m_array[j], m_array[j + 1]);
+		
+		}
+	}
+}
+
+bool CStrArray::check_sort_content()
+{
+	for (int i = 0; i < m_size - 1; i++) {
+		
+		if (m_array[i]->operator>(*m_array[i + 1]))
+			return false;
+	
+	}
+
+	return true;
+}
 
 std::ostream& operator << (std::ostream& stream, const CStrArray& object)
 {

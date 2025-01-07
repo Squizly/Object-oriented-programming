@@ -12,6 +12,9 @@ public:
 	TMatrix( const TMatrix<Type>& );
 	~TMatrix();
 
+	TMatrix<Type>& operator = ( const TMatrix<Type>& );
+	TMatrix<Type>& operator += ( const TMatrix<Type>& );
+	TVector<Type>& operator [] ( const int ) const;
 
 private:
 	TVector<Type>* m_matrix = nullptr;
@@ -22,4 +25,4 @@ private:
 
 #include "TMatrix.cpp"
 
-#endif //!ARE_TEMPLATE_VECTOR_DECLARED
+#endif //!ARE_TEMPLATE_MATRIX_DECLARED

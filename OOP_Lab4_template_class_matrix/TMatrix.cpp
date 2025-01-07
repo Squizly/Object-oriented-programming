@@ -32,6 +32,34 @@ TMatrix<Type>::~TMatrix()
 	delete[]m_matrix;
 }
 
+template <typename Type>
+TMatrix<Type>& TMatrix<Type>::operator = ( const TMatrix<Type>& object )
+{
+	if (m_row == object.m_row && m_column == object.m_column) {
+		for (int i = 0; i < m_row; i++)
+			m_matrix[i] = object.m_matrix[i];
+	}
+
+	return *this;
+}
+
+template <typename Type>
+TMatrix<Type>& TMatrix<Type>::operator += (const TMatrix<Type>& object)
+{
+	if (m_row == object.m_row && m_column == object.m_column) {
+
+		for (int i = 0; i < m_row; i++)
+			m_matrix[i] += object.m_matrix[i];
+
+	}
+}
+
+template <typename Type>
+TVector<Type>& TMatrix<Type>::operator [] (const int index) const
+{
+	assert(index < m_row);
+	return m_matrix[abs(index)];
+}
 
 
 #endif
